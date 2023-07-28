@@ -1,0 +1,14 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 20px;
+}
+
+h1 {
+  text-align: center;
+}
+
+select {
+  width: 200px;
+  padding: 8px;
+  font-size: 16px;
+}
