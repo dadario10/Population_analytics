@@ -29,4 +29,5 @@
 ### Visualizations: 
  - Bar Chart(s)
  - Pie Chart(s)
- - Interactive Map(s
+ - Interactive Map(s)
+ - Line Graph(s)
