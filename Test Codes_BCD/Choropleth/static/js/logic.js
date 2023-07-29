@@ -1,7 +1,7 @@
 // Creating the map object, set to Atlantic Ocean
 let myMap = L.map("map", {
-  center: [14.59, -28.67],
-  zoom: 3
+  center: [21.45, -9.80],
+  zoom: 2.75,
 });
 
 // Adding the tile layer
@@ -34,7 +34,7 @@ d3.json(geoData).then(function(data) {
     style: {
       // Border color
       color: "#fff",
-      weight: 2,
+      weight: 1,
       fillOpacity: 0.5
     },
 
