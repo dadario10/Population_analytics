@@ -1,19 +1,18 @@
-// populate the dropdown with JSON data
+// Function to populate the dropdown with JSON data
 function populateDropdown(data) {
   const dropdown = document.getElementById("dropdown");
 
   data.forEach(item => {
       const option = document.createElement("option");
-      option.text = item.country;
-      option.value = item.country;
+      option.text = item.name;
+      option.value = item.id; // You can set the value to whatever you need
       dropdown.appendChild(option);
   });
 }
 
-// read json file
+// Read the JSON file using D3 and populate the dropdown when the page loads
 document.addEventListener("DOMContentLoaded", () => {
-  fetch('countries-table.json')
-      .then(response => response.json())
+  d3.json('data.json') // Replace 'data.json' with the path to your JSON file
       .then(data => {
           populateDropdown(data);
       })
