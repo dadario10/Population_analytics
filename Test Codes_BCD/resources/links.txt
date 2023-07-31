@@ -1,0 +1,9 @@
+https://getbootstrap.com/docs/5.3/getting-started/introduction/
+https://tedboy.github.io/flask/generated/flask.jsonify.html
+Module 10-Advanced SQL; day 3, activities - Flask, jsonify, sqlalchemy, sqlite
+Module 11-Data Collection, day 1 - CSS
+Module 14
+Module 15- day 2, activities - cholorpleth, geoJSON, HTML, JS
+https://leafletjs.com/
+https://codepen.io/infowind/pen/yrMgVr
+ChatGPT

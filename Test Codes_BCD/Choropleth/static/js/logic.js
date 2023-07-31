@@ -1,7 +1,7 @@
 // Creating the map object, set to Atlantic Ocean
 let myMap = L.map("map", {
   center: [21.45, -9.80],
-  zoom: 2.75,
+  zoom: 3.25,
 });
 
 // Adding the tile layer
@@ -9,42 +9,25 @@ L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
 }).addTo(myMap);
 
-// Load the GeoJSON data.
+// Load the GeoJSON data for the outline of the countries
 let geoData = "https://datahub.io/core/geo-countries/r/countries.geojson";
 
 let geojson;
 
-// Get the data with d3.
+// Get the data with d3 for the map
 d3.json(geoData).then(function(data) {
 
   // Create a new choropleth layer.
   geojson = L.choropleth(data, {
 
-    // Define which property in the features to use.
+    // Define which property in the features to use to outline the countries
     valueProperty: "ISO_A3",
-
-    // Set the color scale.
-    scale: ["#ccffff", "#00e6e6"],
-
-    // The number of breaks in the step range
-    steps: 10,
-
-    // q for quartile, e for equidistant, k for k-means
-    mode: "q",
-    style: {
-      // Border color
-      color: "#fff",
-      weight: 1,
-      fillOpacity: 0.5
-    },
-
-    // Binding a popup to each layer
+    // binding a popup to each layer, show name of country when clicked
     onEachFeature: function(feature, layer) {
       layer.bindPopup(feature.properties.ADMIN);
     }
   }).addTo(myMap);
-
-  // Set up the legend.
-  
-
 });
+
+var selector = d3.selector("dropdown-menu")
+d3.json("wp_database.db")
