@@ -6,7 +6,7 @@ body {
 #map,
 body,
 html {
-  height: 775px;
+  height: 600px;
 }
 
 .leaflet-popup-content {
