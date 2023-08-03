@@ -32,32 +32,50 @@
 
     <!-- The div where we'll insert our map -->
     <div id="map"></div>
+    <!-- Import Plotly -->
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
 
     <!-- leaflet-choropleth JavaScript -->
     <script type="text/javascript" src="static/js/choropleth.js"></script>
 
     <!-- Our JavaScript -->
-    <script type="text/javascript" src="static/js/logic.js"></script>
+    <!-- <script type="text/javascript" src="static/js/logic.js"></script> -->
 
     <div>
       <div class="container text-center">
         <div class="row">
           <div class="col">
             
-            <div class="dropdown">
-              <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <select id="country-drop-down">
+              <!-- Button added here -->
+              <h5>Test Subject ID No.:</h5>
+              <select id="selDataset" onchange="optionChanged(this.value)"></select>
+          </select>
+            <!-- <div class="dropdown">
+              <select class="btn btn-secondary dropdown-toggle" id="dropdown"></select> -->
+              <!-- <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
                 Select a Country:
               </button>
               <ul class="dropdown-menu"></ul>
-                <!-- <li><a class="dropdown-item" href="#">Test</a></li> -->
-                <!-- <li><a class="dropdown-item" href="#">Action two</a></li>-->
-                <!-- <li><a class="dropdown-item" href="#">Action three</a></li>-->
-              </ul>
+                
+              </ul> -->
             </div>
           </div>
           <div class="col">
             bar chart will go here      
-            <div id="bar"></div>
+            <div id="line"></div>
+          </div>
+          <div class="col-md-2">
+            <div class="well">
+              <!-- <h5>Test Subject ID No.:</h5>
+              <select id="selDataset" onchange="optionChanged(this.value)"></select> -->
+            </div>
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Demographic Info</h3>
+              </div>
+              <div id="sample-metadata" class="panel-body"></div>
+            </div>
           </div>
           <div class="col">
             pie chart will go here
@@ -68,6 +86,7 @@
       </div>
 
     </div>
-
+    <!-- Our JavaScript -->
+    <script type="text/javascript" src="static/js/logic.js"></script>
   </body>
 </html>

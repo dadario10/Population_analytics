@@ -16,6 +16,7 @@ let geojson;
 
 // Get the data with d3 for the map
 d3.json(geoData).then(function(data) {
+
   // Create a new choropleth layer.
   geojson = L.choropleth(data, {
     // Define which property in the features to use to outline the countries
@@ -27,32 +28,89 @@ d3.json(geoData).then(function(data) {
   }).addTo(myMap);
 });
 
-function getCountryInfo(countryName) {
-  d3.json('').then(function(data){
+// function init(){
+
+//   let selector=  d3.select("#country-drop-down");
+//   let countries = ['China', 'India', 'US']
+//   for(let i =0; i< countries.length; i++){
+//     selector.append("option")
+//     .attr('value', countries[i]) // Set the "value" attribute
+//     .text(countries[i]);
+//     }
+
+// }
+
+// init()
+
+
+
+// NEW CODE 
+const dropdown = d3.select("#country-drop-down");
+let dropdownOptions = ['Bangladesh','Brazil', 'China', 'India', 'Indonesia', 'Mexico','Nigeria',
+                      'Pakistan', 'Russia', 'US']
+                        
+
+
+dropdownOptions.forEach(countryName => {
+  dropdown.append("option").text(countryName);
+});
+
+// run createcharts when dropdown option is selected (changed)
+dropdown.on('change', newChange)
+
+newChange()
+
+function createCharts(){
+  let countryName = dropdown.property("value");
+
+  d3.json(`http://127.0.0.1:5000/api/${countryName}`).then(countryData => {
+    // console.log(countryData)
+    
+    let yearList = countryData.map(obj => obj.Year);
+    //console.log(yearList)
+
+    // Build Line Plot
+    let traceLine = {
+      x: countryData.map(obj => obj.Year),
+      y: countryData.map(obj => obj.Population), 
+      type:'line'
+    }
+
+    layout = {
+      title: "Population Growth by Year"
+    }
+
+    let lineData = [traceLine]
+
+    Plotly.newPlot('line', lineData, layout);
 
 
   })
-
-
 }
 
 
-// Function to populate the dropdown with options
-function populateDropdown(data) {
-  // Assuming data is an array of objects with a "Country" property
-  var countryData = data.map(function(d) {
-    return d.Country;
-  });
 
-  var dropdown = d3.selectAll("dropdown-item");
-  dropdown.selectAll("option")
-          .data(countryData)
-          .enter()
-          .append("option")
-          .text(function(d) { return d; });}
+      // Demographics Panel
+    function buildMetadata(sample) {
+      let countryName = dropdown.property("value");
+        d3.json(`http://127.0.0.1:5000/api/${countryName}`).then((data) => {
+          var metadata = data//.metadata;
+          console.log(data)
+          // var resultArray = metadata.filter(sampleObj => sampleObj.countries == sample);
+          // var result = resultArray[0];
+          let result=data[0]
+          var PANEL = d3.select("#sample-metadata");
+          // Use `.html("") to clear any existing metadata
+          PANEL.html("");
+          // Using Object.entries, add each key and value pair
+          Object.entries(result).forEach(([key, value]) => {
+            PANEL.append("h6").text(`${key.toUpperCase()}: ${value}`);
+          });
+      
+      });
+    }
 
-d3.json("").then(function(data) {
-  populateDropdown(data);
-}).catch(function(error) {
-  console.error("Error loading data:", error);
-}).addTo(myMap);
+function newChange(){
+  createCharts()
+  buildMetadata(0)
+}
