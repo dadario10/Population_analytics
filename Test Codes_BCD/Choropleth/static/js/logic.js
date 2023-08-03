@@ -16,7 +16,6 @@ let geojson;
 
 // Get the data with d3 for the map
 d3.json(geoData).then(function(data) {
-
   // Create a new choropleth layer.
   geojson = L.choropleth(data, {
     // Define which property in the features to use to outline the countries
@@ -28,6 +27,16 @@ d3.json(geoData).then(function(data) {
   }).addTo(myMap);
 });
 
+function getCountryInfo(countryName) {
+  d3.json('').then(function(data){
+
+
+  })
+
+
+}
+
+
 // Function to populate the dropdown with options
 function populateDropdown(data) {
   // Assuming data is an array of objects with a "Country" property
@@ -36,17 +45,13 @@ function populateDropdown(data) {
   });
 
   var dropdown = d3.selectAll("dropdown-item");
-
-  // Add options to the dropdown
   dropdown.selectAll("option")
           .data(countryData)
           .enter()
           .append("option")
-          .text(function(d) { return d; });
-}
+          .text(function(d) { return d; });}
 
-// Load data from the JSON file and call the populateDropdown function
-d3.json("wp_database.db").then(function(data) {
+d3.json("").then(function(data) {
   populateDropdown(data);
 }).catch(function(error) {
   console.error("Error loading data:", error);
