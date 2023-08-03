@@ -28,9 +28,8 @@ def brazil():
     return brazil.to_json(orient='records')
 
 
-# Bangladesh route, accepts either capital or lowercase 
+# Bangladesh route 
 @app.route("/api/Bangladesh")
-
 def bangladesh():
 
     bangladesh = pd.read_sql('SELECT * FROM Bangladesh', conn2)
