@@ -24,3 +24,18 @@ h1 {
 
 path {fill: rgb(0, 255, 21); stroke: white;}
 path:hover {fill: rgb(0, 39, 14);}
+
+.panel{
+  
+  border: 2px solid black;
+  padding: 2px;
+  width: fit-content;
+
+}
+
+.panel-title{
+  align-content: left;
+
+}
+
+

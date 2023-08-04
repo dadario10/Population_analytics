@@ -139,30 +139,7 @@ if __name__ == '__main__':
      app.run(debug=True)
 
 
-# reflect an existing database into a new model
-# Base = automap_base()
-# # reflect the tables
-# Base.prepare(autoload_with=engine)
-# print(Base.classes.keys())
-# Save reference to the table
-# Brazil = Base.classes.Brazil
 
-
-# Query all years in Brazil table
-
-
-# @app.route("/api/brazil")
-# def brazil():
-#     session = Session(engine)
-    
-#     results = session.query(Brazil.Year).all()
-#     print(results)
-#     session.close()
-
-#     #convert list of tuples into normal list
-#     data = list(np.ravel(results))
-
-#     return jsonify(data)
 
 
 

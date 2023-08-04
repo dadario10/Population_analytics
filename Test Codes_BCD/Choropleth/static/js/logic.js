@@ -28,46 +28,33 @@ d3.json(geoData).then(function(data) {
   }).addTo(myMap);
 });
 
-// function init(){
 
-//   let selector=  d3.select("#country-drop-down");
-//   let countries = ['China', 'India', 'US']
-//   for(let i =0; i< countries.length; i++){
-//     selector.append("option")
-//     .attr('value', countries[i]) // Set the "value" attribute
-//     .text(countries[i]);
-//     }
-
-// }
-
-// init()
-
-
-
-// NEW CODE 
+// Set constant variable for drop down menu 
 const dropdown = d3.select("#country-drop-down");
+// List of countries in drop down menu
 let dropdownOptions = ['Bangladesh','Brazil', 'China', 'India', 'Indonesia', 'Mexico','Nigeria',
                       'Pakistan', 'Russia', 'US']
                         
 
-
+// Add each country name to drop down menu
 dropdownOptions.forEach(countryName => {
   dropdown.append("option").text(countryName);
 });
 
-// run createcharts when dropdown option is selected (changed)
+// run createcharts when dropdown option is changed
 dropdown.on('change', newChange)
 
 newChange()
 
+// Function to acquire data from country-api and build charts accordingly
 function createCharts(){
   let countryName = dropdown.property("value");
 
   d3.json(`http://127.0.0.1:5000/api/${countryName}`).then(countryData => {
-    // console.log(countryData)
+    // console.log(countryData) // log to verify countryData is accurate data
     
     let yearList = countryData.map(obj => obj.Year);
-    //console.log(yearList)
+    //console.log(yearList) 
 
     // Build Line Plot
     let traceLine = {
@@ -84,18 +71,15 @@ function createCharts(){
           text:"Population",
           font: 25,
          standoff:20}
-      
           }
-      
     }
 
     let lineData = [traceLine]
-
+    //Plot line chart for population by year
     Plotly.newPlot('line', lineData, layout);
 
-
   })
-}
+} // Ending bracket for createCharts()
 
 
 
@@ -119,6 +103,7 @@ function createCharts(){
       });
     }
 
+// Function to run when drop down menu option is changed
 function newChange(){
   createCharts()
   buildMetadata(0)
