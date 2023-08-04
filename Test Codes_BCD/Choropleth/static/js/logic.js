@@ -77,7 +77,16 @@ function createCharts(){
     }
 
     layout = {
-      title: "Population Growth by Year"
+      title: "Population Growth by Year",
+      xaxis:{title:"Year"},
+      yaxis:{
+        title:{
+          text:"Population",
+          font: 25,
+         standoff:20}
+      
+          }
+      
     }
 
     let lineData = [traceLine]
