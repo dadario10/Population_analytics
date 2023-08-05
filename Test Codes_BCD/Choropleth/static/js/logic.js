@@ -78,7 +78,34 @@ function createCharts(){
     //Plot line chart for population by year
     Plotly.newPlot('line', lineData, layout);
 
+
+    // Build Line Plot
+    let tracepie = {
+      labels: ["Bangladesh", "Brazil", "China", "India", "Indonesia", "Mexico", "Nigeria", "Pakistan", "Russia", "USA", "Rest of the World"],
+      values: [2.15,2.69,17.72,17.76,3.45,1.6,2.78,2.99,1.8,4.23,42.83], 
+      type:'pie'
+    }
+
+    pielayout = {
+      title: "Top 10 Growing Countries in 2023",
+      xaxis:{title:"Year 2023"},
+      yaxis:{
+        title:{
+          text:"Population",
+          font: 25,
+         standoff:20}
+      
+          }
+      
+    }
+
+    let pieData = [tracepie]
+
+    Plotly.newPlot('pie', pieData, pielayout);
+
   })
+
+
 } // Ending bracket for createCharts()
 
 
