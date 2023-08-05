@@ -71,14 +71,14 @@ function createCharts(){
 
     // Build Line Plot
     let traceLine = {
-      x: countryData.map(obj => obj.Year),
-      y: countryData.map(obj => obj.Population), 
-      type:'line'
+      labels: ["Bangladesh", "Brazil", "China", "India", "Indonesia", "Mexico", "Nigeria", "Pakistan", "Russia", "USA", "Rest of the World"],
+      values: [2.15,2.69,17.72,17.76,3.45,1.6,2.78,2.99,1.8,4.23,42.83], 
+      type:'pie'
     }
 
     layout = {
-      title: "Population Growth by Year",
-      xaxis:{title:"Year"},
+      title: "Top 10 Growing Countries in 2023",
+      xaxis:{title:"Year 2023"},
       yaxis:{
         title:{
           text:"Population",
@@ -91,7 +91,14 @@ function createCharts(){
 
     let lineData = [traceLine]
 
-    Plotly.newPlot('line', lineData, layout);
+    Plotly.newPlot('pie', lineData, layout);
+
+
+
+
+
+
+
 
 
   })
