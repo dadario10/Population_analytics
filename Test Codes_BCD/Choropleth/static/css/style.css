@@ -18,7 +18,7 @@ h1 {
 }
 /* colour of map and hover */
 .container {
-  width: 60%;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -28,8 +28,8 @@ path:hover {fill: rgb(0, 39, 14);}
 .panel{
   
   border: 2px solid black;
-  padding: 2px;
-  width: fit-content;
+  padding: 20px;
+  width: auto;
 
 }
 
@@ -38,4 +38,12 @@ path:hover {fill: rgb(0, 39, 14);}
 
 }
 
+.panel-primary{
+  padding: 10%;
+  margin-left: 30px;
+  width: 100%;
+}
 
+/*.graph {
+  width:100%
+}*/
