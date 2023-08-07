@@ -19,7 +19,8 @@ app.config['CORS_HEADERS'] = 'Content-Type'
 #################################################
 # Database Setup
 #################################################
-engine = create_engine("sqlite:///clean_data/population.sqlite")
+engine = create_engine("sqlite:///Databases/population.sqlite")
+engine2 = create_engine("sqlite:///Databases/allworlddata.sqlite")
 
 #################################################
 # Flask Routes
@@ -53,6 +54,13 @@ def home():
         f"10)US' Population Data<br>"
         f"/api/US<br>"
     )
+
+# Route for All Countries
+@app.route("/api/AllWorld")
+def allworld():
+   
+    alldata = pd.read_sql('SELECT * FROM allworlddata', engine2)
+    return alldata.to_dict(orient='records')
 
 # Brazil route 
 @app.route("/api/Brazil")
