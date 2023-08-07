@@ -25,4 +25,5 @@
  - https://github.com/topics/worldometer-api
  - https://worldpopulationreview.com
  - https://data.worldbank.org
- - Aid from Instructor, Learning Assistant, and Teaching Assistants 
+ - Aid from Instructor, Learning Assistant, and Teaching Assistants
+ - SQLiteDatabaseBrowser
