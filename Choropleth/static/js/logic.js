@@ -108,8 +108,8 @@ function createCharts(){
   let tracebar = {
     y: countryData.map(obj => obj.Year.toString()),
     width: 4.0,
-    x: countryData.map(obj => obj.FertilityRate).reverse(),
-    text: countryData.map(obj => obj.Year).reverse(),
+    x: countryData.map(obj => obj.FertilityRate),
+    text: countryData.map(obj => obj.Year),
     type: 'bar',
     orientation: 'h'
   }
