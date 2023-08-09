@@ -103,33 +103,34 @@ function createCharts(){
         let pieData = [tracepie]
     
         Plotly.newPlot('pie', pieData, pielayout);
-  })
+  
   // Build bar graph
   let tracebar = {
-    y: ["Bangladesh", "Brazil", "China", "India", "Indonesia", "Mexico", "Nigeria", "Pakistan", "Russia", "USA", "Rest of World"],
-    x: [2.15, 2.69, 17.72, 17.76, 3.45, 1.6, 2.78, 2.99, 1.8, 4.23, 42.83],
+    y: countryData.map(obj => obj.Year.toString()),
+    width: 4.0,
+    x: countryData.map(obj => obj.FertilityRate).reverse(),
+    text: countryData.map(obj => obj.Year).reverse(),
     type: 'bar',
-    orientation: "h"
+    orientation: 'h'
   }
-
- barlayout = {
-    title: "Top 10 Growing Countries in 2023",
-    xaxis: { title: "World Population Share(%)" },
-    yaxis: {
-      title: {
-        text: "Country",
-        font: 25,
-        standoff: 20
-      }, 
-      margin: {l:40}
-
+  barlayout = {
+    title: 'Fertility Rate by Year',
+    xaxis: { title: 'Fertility Rate (%)'
+  },
+  yaxis: {
+  title: {
+    text: 'Year',
+    font: 25,
+      standoff: 20
+  },
+  margin: { l: 40 }
+  },
+  bargap: 0.1
     }
-
-  }
-
   let barData = [tracebar]
-
   Plotly.newPlot('bar', barData, barlayout);
+  })
+
 
 } // Ending bracket for createCharts()
 
