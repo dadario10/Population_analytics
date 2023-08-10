@@ -1,7 +1,7 @@
 // Creating the map object, set to Atlantic Ocean
 let myMap = L.map("map", {
   center: [21.45, -9.80],
-  zoom: 3.25,
+  zoom: 2,
 });
 
 // Adding the tile layer
@@ -23,7 +23,7 @@ d3.json(geoData).then(function(data) {
     valueProperty: "ISO_A3",
     // binding a popup to each layer, show name of country when clicked
     onEachFeature: function(feature, layer) {
-      layer.bindPopup(feature.properties.ADMIN);
+      layer.bindPopup(`<h3>${feature.properties.ADMIN}</h3>`);
     }
   }).addTo(myMap);
 });
