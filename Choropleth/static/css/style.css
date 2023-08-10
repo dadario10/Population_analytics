@@ -1,0 +1,49 @@
+body {
+  padding: 0;
+  margin: 0;
+}
+
+#map,
+body,
+html {
+  height: 600px;
+}
+
+.leaflet-popup-content {
+  text-align: center;
+}
+
+h1 {
+  text-align: center;
+}
+/* colour of map and hover */
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+path {fill: rgb(0, 255, 21); stroke: white;}
+path:hover {fill: rgb(0, 39, 14);}
+
+.panel{
+  
+  border: 2px solid black;
+  padding: 20px;
+  width: auto;
+
+}
+
+.panel-title{
+  align-content: left;
+
+}
+
+.panel-primary{
+  padding: 10%;
+  margin-left: 30px;
+  width: 100%;
+}
+
+/*.graph {
+  width:100%
+}*/
